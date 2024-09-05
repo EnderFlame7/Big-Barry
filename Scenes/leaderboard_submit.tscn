@@ -1,0 +1,102 @@
+[gd_scene load_steps=7 format=3 uid="uid://y3mnt8iq4m6g"]
+
+[ext_resource type="Script" path="res://Scripts/leaderboard_submit.gd" id="1_1cwet"]
+[ext_resource type="Texture2D" uid="uid://otx56o8dy6ew" path="res://Assets/UI/blue_button_normal.png" id="2_5qe2l"]
+[ext_resource type="FontFile" uid="uid://dxbiptr48we3n" path="res://Assets/Fonts/Bubble Bobble.ttf" id="3_aspie"]
+[ext_resource type="Texture2D" uid="uid://dq3kvxqmnfdcr" path="res://Assets/UI/green_button_normal.png" id="4_takto"]
+[ext_resource type="Texture2D" uid="uid://dftqm12nlwtpq" path="res://Assets/UI/green_button_pressed.png" id="5_ew6jj"]
+[ext_resource type="Texture2D" uid="uid://6lsko24dnp6n" path="res://Assets/UI/green_button_hover.png" id="6_dfsm7"]
+
+[node name="LeaderboardSubmit" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_1cwet")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="NameSubmit" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(465, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.391
+anchor_top = 0.393625
+anchor_right = 0.593809
+anchor_bottom = 0.676339
+offset_left = 1.13593
+offset_top = -0.0320435
+offset_right = -1.13611
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="NameSubmit"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("2_5qe2l")
+metadata/_edit_lock_ = true
+
+[node name="LineEdit" type="LineEdit" parent="NameSubmit/TextureRect"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_aspie")
+theme_override_font_sizes/font_size = 64
+theme_override_icons/clear = ExtResource("2_5qe2l")
+placeholder_text = "Your name..."
+alignment = 1
+max_length = 10
+flat = true
+
+[node name="SubmitButton" type="TextureButton" parent="NameSubmit"]
+layout_mode = 2
+texture_normal = ExtResource("4_takto")
+texture_pressed = ExtResource("5_ew6jj")
+texture_hover = ExtResource("6_dfsm7")
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="NameSubmit/SubmitButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 50
+theme_override_fonts/font = ExtResource("3_aspie")
+theme_override_font_sizes/font_size = 80
+text = "SUBMIT"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TimeEscaped" type="Label" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.281264
+anchor_top = 0.275179
+anchor_right = 0.71917
+anchor_bottom = 0.354179
+offset_left = 4.96796
+offset_top = 0.159973
+offset_right = -3.96802
+offset_bottom = -0.0160217
+grow_horizontal = 2
+theme_override_constants/outline_size = 50
+theme_override_fonts/font = ExtResource("3_aspie")
+theme_override_font_sizes/font_size = 96
+text = "You escaped in XX:XX:XX !"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="NameSubmit/SubmitButton" to="." method="_on_submit_button_pressed"]

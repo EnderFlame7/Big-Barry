@@ -1,0 +1,79 @@
+[gd_scene load_steps=18 format=3 uid="uid://byy2bmb1gl073"]
+
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_eok4i"]
+[ext_resource type="PackedScene" uid="uid://dyarpkt2s7c5b" path="res://Scenes/ui.tscn" id="3_if60s"]
+[ext_resource type="PackedScene" uid="uid://bv0ygnjf1oui2" path="res://Scenes/Levels/level_2.tscn" id="3_jhkhb"]
+[ext_resource type="PackedScene" uid="uid://bcangpx71x7pm" path="res://Scenes/Levels/level_1.tscn" id="3_qinem"]
+[ext_resource type="PackedScene" uid="uid://dbooegm4nqgwd" path="res://Scenes/Levels/level_3.tscn" id="4_utfkv"]
+[ext_resource type="PackedScene" uid="uid://tvmqkuxkerxs" path="res://Scenes/Levels/level_4.tscn" id="5_sk264"]
+[ext_resource type="PackedScene" uid="uid://by6liqh7b6xo8" path="res://Scenes/Levels/level_5.tscn" id="6_5fam2"]
+[ext_resource type="PackedScene" uid="uid://bnl0cc5incybx" path="res://Scenes/Levels/level_6.tscn" id="7_6325r"]
+[ext_resource type="PackedScene" uid="uid://48xg21u6atro" path="res://Scenes/Levels/level_7.tscn" id="8_m4c7n"]
+[ext_resource type="PackedScene" uid="uid://mmylxf8wfvla" path="res://Scenes/Levels/level_8.tscn" id="9_80fru"]
+[ext_resource type="AudioStream" uid="uid://o13u41uru7c5" path="res://Assets/SFX/music.wav" id="9_b37jr"]
+[ext_resource type="PackedScene" uid="uid://y4ggxg7moc6c" path="res://Scenes/Levels/level_9.tscn" id="10_pv7t7"]
+[ext_resource type="AudioStream" uid="uid://dap4dqwpc3pgq" path="res://Assets/SFX/menu_music.wav" id="11_4j13h"]
+[ext_resource type="AudioStream" uid="uid://evwl4v13o0k1" path="res://Assets/SFX/panic.wav" id="14_p5pot"]
+[ext_resource type="AudioStream" uid="uid://byysfl0ajomel" path="res://Assets/SFX/tension-drones.wav" id="14_u4uwi"]
+[ext_resource type="Texture2D" uid="uid://bldjisetphfas" path="res://Assets/BGs/sky.png" id="15_bg2e2"]
+[ext_resource type="PackedScene" uid="uid://duthdxdptwn10" path="res://Scenes/menu.tscn" id="15_fitum"]
+
+[node name="Main" type="Node2D"]
+physics_interpolation_mode = 1
+script = ExtResource("1_eok4i")
+levels = Array[PackedScene]([ExtResource("3_qinem"), ExtResource("3_jhkhb"), ExtResource("4_utfkv"), ExtResource("5_sk264"), ExtResource("6_5fam2"), ExtResource("7_6325r"), ExtResource("8_m4c7n"), ExtResource("9_80fru"), ExtResource("10_pv7t7")])
+tension_levels = Array[int]([6, 8, 9])
+menu_audio = ExtResource("11_4j13h")
+menu_volume = -20.0
+music_audio = ExtResource("9_b37jr")
+music_volume = -20.0
+tension_audio = ExtResource("14_u4uwi")
+tension_volume = -5.0
+panic_audio = ExtResource("14_p5pot")
+panic_volume = -35.0
+
+[node name="Levels" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Camera" type="Camera2D" parent="."]
+unique_name_in_owner = true
+physics_interpolation_mode = 1
+offset = Vector2(1152, 672)
+
+[node name="UI" parent="Camera" instance=ExtResource("3_if60s")]
+unique_name_in_owner = true
+z_index = 999
+custom_minimum_size = Vector2(2304, 1344)
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 2304.0
+offset_bottom = 1296.0
+grow_horizontal = 1
+grow_vertical = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Camera"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Camera/ParallaxBackground"]
+motion_scale = Vector2(1, 0.001)
+
+[node name="Sky" type="Sprite2D" parent="Camera/ParallaxBackground/ParallaxLayer"]
+z_index = -200
+position = Vector2(0, -307)
+scale = Vector2(1, 1.54784)
+texture = ExtResource("15_bg2e2")
+offset = Vector2(1152, 648)
+
+[node name="Menu" parent="Camera" instance=ExtResource("15_fitum")]
+z_index = -100
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 2304.0
+offset_bottom = 1344.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true

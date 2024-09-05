@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://2xtv6jd84e13"]
+
+[ext_resource type="Script" path="res://Scripts/button.gd" id="1_a3ewd"]
+[ext_resource type="Texture2D" uid="uid://bpjbnivbbcj1u" path="res://Assets/Tiles/Interactables/red_button_off.png" id="2_0aysj"]
+[ext_resource type="Texture2D" uid="uid://c2wg2iq3figq0" path="res://Assets/Tiles/Interactables/red_button_on.png" id="3_u5hy1"]
+[ext_resource type="AudioStream" uid="uid://cfpaw0m6k8dck" path="res://Assets/SFX/button_press.wav" id="4_da2oy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8jrmk"]
+size = Vector2(42, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5t1ei"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0aysj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_u5hy1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Red Button Right" type="Node2D" node_paths=PackedStringArray("sprite", "area")]
+z_index = 2
+rotation = 4.71239
+script = ExtResource("1_a3ewd")
+sprite = NodePath("AnimatedSprite")
+area = NodePath("Area")
+
+[node name="Area" type="Area2D" parent="."]
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Area"]
+position = Vector2(0, 20)
+shape = SubResource("RectangleShape2D_8jrmk")
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_5t1ei")
+
+[node name="Press SFX" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_da2oy")
+volume_db = -20.0
+
+[connection signal="area_entered" from="Area" to="." method="_on_player_entered_area"]
+[connection signal="area_exited" from="Area" to="." method="_on_player_exited_area"]

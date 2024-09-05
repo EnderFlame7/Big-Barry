@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://dyarpkt2s7c5b"]
+
+[ext_resource type="Script" path="res://Scripts/ui.gd" id="1_6uqal"]
+[ext_resource type="FontFile" uid="uid://dxbiptr48we3n" path="res://Assets/Fonts/Bubble Bobble.ttf" id="2_ccu7r"]
+[ext_resource type="Texture2D" uid="uid://ckrgind67v6yt" path="res://Assets/UI/inflation_outline.png" id="2_s1536"]
+[ext_resource type="Texture2D" uid="uid://dcfv77aeggi55" path="res://Assets/UI/inflation_progress.png" id="3_ckod5"]
+
+[node name="UI" type="Control"]
+custom_minimum_size = Vector2(2304, 1296)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_6uqal")
+metadata/_edit_lock_ = true
+
+[node name="ProgressBar" type="TextureProgressBar" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 1296)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.972042
+anchor_right = 1.00034
+anchor_bottom = 1.0
+offset_left = 0.416016
+offset_right = -0.783936
+grow_horizontal = 0
+grow_vertical = 2
+step = 0.01
+value = 100.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_over = ExtResource("2_s1536")
+texture_progress = ExtResource("3_ckod5")
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Label" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(600, 200)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0256076
+anchor_right = 0.44226
+anchor_bottom = 0.280696
+offset_right = -459.968
+offset_bottom = -177.256
+theme_override_constants/outline_size = 50
+theme_override_fonts/font = ExtResource("2_ccu7r")
+theme_override_font_sizes/font_size = 96
+text = "XXX:XX:XX"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true

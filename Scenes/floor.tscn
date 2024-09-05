@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://k53x0t63l48w"]
+
+[ext_resource type="Script" path="res://Scripts/floor.gd" id="1_1jpb7"]
+[ext_resource type="Texture2D" uid="uid://xihek7a6e1p0" path="res://icon.svg" id="1_smcc6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jj2ni"]
+size = Vector2(128, 128)
+
+[node name="Floor" type="StaticBody2D"]
+texture_filter = 1
+position = Vector2(1173, 1168)
+scale = Vector2(20, 2)
+collision_mask = 14
+script = ExtResource("1_1jpb7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jj2ni")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_smcc6")

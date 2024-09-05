@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://btuctclbw5wwu"]
+
+[ext_resource type="Texture2D" uid="uid://dhkwn7w4qj8i6" path="res://Assets/BGs/eye_ball.png" id="1_ahw8n"]
+[ext_resource type="Script" path="res://Scripts/eye_ball.gd" id="2_s0pq8"]
+
+[node name="EyeBall" type="Sprite2D"]
+scale = Vector2(1.15, 1.15)
+texture = ExtResource("1_ahw8n")
+flip_h = true
+script = ExtResource("2_s0pq8")

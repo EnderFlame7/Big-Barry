@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dj1fcrmmuxod2"]
+
+[ext_resource type="Texture2D" uid="uid://c1b6rn6exho32" path="res://Assets/Player/rope_segment.png" id="1_1me6t"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n70w6"]
+radius = 6.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_efyvf"]
+radius = 6.0
+
+[node name="RopeSegment" type="RigidBody2D"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_n70w6")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_1me6t")
+
+[node name="Area" type="Area2D" parent="." groups=["player"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
+shape = SubResource("CapsuleShape2D_efyvf")
+disabled = true
+debug_color = Color(1, 0, 0, 0.419608)

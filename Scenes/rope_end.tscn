@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://xc0kyhgmxx5b"]
+
+[ext_resource type="Texture2D" uid="uid://c7rcvlrm36qun" path="res://Assets/Player/rope_end.png" id="1_410yi"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n70w6"]
+radius = 6.0
+
+[node name="RopeEnd" type="RigidBody2D"]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_n70w6")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_410yi")
+
+[node name="Area" type="Area2D" parent="." groups=["player"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
+shape = SubResource("CapsuleShape2D_n70w6")
+debug_color = Color(1, 0, 0, 0.419608)

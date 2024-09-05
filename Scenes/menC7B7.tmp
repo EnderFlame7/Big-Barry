@@ -1,0 +1,465 @@
+[gd_scene load_steps=26 format=3 uid="uid://duthdxdptwn10"]
+
+[ext_resource type="Script" path="res://Scripts/menu.gd" id="1_n11tl"]
+[ext_resource type="Texture2D" uid="uid://cy5hkdpj1peas" path="res://Assets/UI/title.png" id="2_t0neu"]
+[ext_resource type="Texture2D" uid="uid://bdb7an6251ejb" path="res://Assets/UI/red_button_normal.png" id="3_rw8kt"]
+[ext_resource type="Texture2D" uid="uid://dwemyrwk37dxt" path="res://Assets/UI/red_button_pressed.png" id="4_fbvly"]
+[ext_resource type="Texture2D" uid="uid://b3oh3hy4u28ri" path="res://Assets/UI/red_button_hover.png" id="5_int1w"]
+[ext_resource type="Texture2D" uid="uid://dq3kvxqmnfdcr" path="res://Assets/UI/green_button_normal.png" id="6_s6l5q"]
+[ext_resource type="FontFile" uid="uid://dxbiptr48we3n" path="res://Assets/Fonts/Bubble Bobble.ttf" id="6_uvbrt"]
+[ext_resource type="Texture2D" uid="uid://dftqm12nlwtpq" path="res://Assets/UI/green_button_pressed.png" id="7_eiumj"]
+[ext_resource type="Texture2D" uid="uid://6lsko24dnp6n" path="res://Assets/UI/green_button_hover.png" id="8_vpmvb"]
+[ext_resource type="Texture2D" uid="uid://otx56o8dy6ew" path="res://Assets/UI/blue_button_normal.png" id="10_rcqcy"]
+[ext_resource type="Texture2D" uid="uid://b3bmweqxh5iid" path="res://Assets/UI/blue_button_pressed.png" id="11_queui"]
+[ext_resource type="Texture2D" uid="uid://c7qhre7dywwfg" path="res://Assets/UI/blue_button_hover.png" id="12_5mj70"]
+[ext_resource type="Texture2D" uid="uid://bwcgsp72eeajc" path="res://Assets/UI/gray_button_normal.png" id="13_qeshq"]
+[ext_resource type="Texture2D" uid="uid://cp552wvdkxdvx" path="res://Assets/UI/gray_button_pressed.png" id="14_y12np"]
+[ext_resource type="Texture2D" uid="uid://drgf4qak5q6q2" path="res://Assets/UI/gray_button_hover.png" id="15_pvdly"]
+[ext_resource type="PackedScene" uid="uid://y3mnt8iq4m6g" path="res://Scenes/leaderboard_submit.tscn" id="16_hytpa"]
+
+[sub_resource type="FontVariation" id="FontVariation_d8am7"]
+base_font = ExtResource("6_uvbrt")
+
+[sub_resource type="FontVariation" id="FontVariation_me860"]
+base_font = ExtResource("6_uvbrt")
+
+[sub_resource type="Animation" id="Animation_d7l1g"]
+resource_name = "hide_menu"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Main/Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(101, 112), Vector2(101, -700)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Main/Title:rotation")
+tracks/1/interp = 3
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6667, 1),
+"transitions": PackedFloat32Array(0.5, 1.5, 2),
+"update": 0,
+"values": [0.0, -0.174533, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Main/ButtonContainer:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector2(919.5, 700), Vector2(919.5, -600)]
+}
+
+[sub_resource type="Animation" id="Animation_eurbw"]
+resource_name = "reset"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Main/Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(101, 1450)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Main/ButtonContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(919.5, 1400)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LeaderboardSubmit:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 1000)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TheEnd:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 1350)]
+}
+
+[sub_resource type="Animation" id="Animation_ct3e2"]
+resource_name = "roll_credits"
+length = 15.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TheEnd:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 1350), Vector2(0, -1200)]
+}
+
+[sub_resource type="Animation" id="Animation_vumhh"]
+resource_name = "show_leaderboard"
+
+[sub_resource type="Animation" id="Animation_ra5bp"]
+resource_name = "show_menu"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Main/Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(101, 1450), Vector2(101, 112)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Main/Title:rotation")
+tracks/1/interp = 3
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6667, 1.3333, 2),
+"transitions": PackedFloat32Array(0.5, 1.5, 2, 1),
+"update": 0,
+"values": [0.174533, -0.174533, 0.174533, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Main/ButtonContainer:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.2, 1.6, 2),
+"transitions": PackedFloat32Array(1, 1.5, 0.5, 1),
+"update": 0,
+"values": [Vector2(919.5, 1400), Vector2(919.5, 1400), Vector2(919.5, 1050), Vector2(919.5, 700)]
+}
+
+[sub_resource type="Animation" id="Animation_4wuig"]
+resource_name = "show_name"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeaderboardSubmit:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector2(0, 900), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tblff"]
+_data = {
+"hide_menu": SubResource("Animation_d7l1g"),
+"reset": SubResource("Animation_eurbw"),
+"roll_credits": SubResource("Animation_ct3e2"),
+"show_leaderboard": SubResource("Animation_vumhh"),
+"show_menu": SubResource("Animation_ra5bp"),
+"show_name": SubResource("Animation_4wuig")
+}
+
+[node name="Menu" type="Control"]
+custom_minimum_size = Vector2(2304, 1344)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_n11tl")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="Main" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="Title" type="TextureRect" parent="Main"]
+z_index = 1
+custom_minimum_size = Vector2(2103, 660)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.044
+anchor_top = 0.0833214
+anchor_right = 0.957
+anchor_bottom = 0.574321
+offset_left = 101.0
+offset_top = 112.0
+offset_right = 2204.0
+offset_bottom = 772.0
+grow_horizontal = 2
+pivot_offset = Vector2(1051, 330)
+texture = ExtResource("2_t0neu")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="ButtonContainer" type="VBoxContainer" parent="Main"]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.435
+anchor_top = 0.702
+anchor_right = 0.565
+anchor_bottom = 1.0
+offset_left = 919.5
+offset_top = 700.0
+offset_right = 1384.5
+offset_bottom = 1272.0
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="PlayButton" type="TextureButton" parent="Main/ButtonContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+texture_normal = ExtResource("3_rw8kt")
+texture_pressed = ExtResource("4_fbvly")
+texture_hover = ExtResource("5_int1w")
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayText" type="Label" parent="Main/ButtonContainer/PlayButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 50
+theme_override_fonts/font = SubResource("FontVariation_d8am7")
+theme_override_font_sizes/font_size = 128
+text = "PLAY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ModeButton" type="TextureButton" parent="Main/ButtonContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+texture_normal = ExtResource("6_s6l5q")
+texture_pressed = ExtResource("7_eiumj")
+texture_hover = ExtResource("8_vpmvb")
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="ModeText" type="Label" parent="Main/ButtonContainer/ModeButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 50
+theme_override_fonts/font = SubResource("FontVariation_d8am7")
+theme_override_font_sizes/font_size = 128
+text = "MODE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LeaderboardButton" type="TextureButton" parent="Main/ButtonContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+focus_mode = 0
+texture_normal = ExtResource("10_rcqcy")
+texture_pressed = ExtResource("11_queui")
+texture_hover = ExtResource("12_5mj70")
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="LeaderboardText" type="Label" parent="Main/ButtonContainer/LeaderboardButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 55
+theme_override_fonts/font = SubResource("FontVariation_d8am7")
+theme_override_font_sizes/font_size = 72
+text = "LEADERBOARD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Mode" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="ButtonContainer" type="VBoxContainer" parent="Mode"]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.600899
+anchor_top = 0.594655
+anchor_right = 0.802899
+anchor_bottom = 0.891655
+offset_left = 0.527954
+offset_top = -0.216003
+offset_right = 0.119873
+offset_bottom = 0.615845
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="CheckpointButton" type="TextureButton" parent="Mode/ButtonContainer"]
+layout_mode = 2
+focus_mode = 0
+texture_normal = ExtResource("13_qeshq")
+texture_pressed = ExtResource("14_y12np")
+texture_hover = ExtResource("15_pvdly")
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="CheckpointText" type="Label" parent="Mode/ButtonContainer/CheckpointButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 55
+theme_override_fonts/font = SubResource("FontVariation_d8am7")
+theme_override_font_sizes/font_size = 72
+text = "CHECKPOINT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="YoloButton" type="TextureButton" parent="Mode/ButtonContainer"]
+layout_mode = 2
+focus_mode = 0
+texture_normal = ExtResource("13_qeshq")
+texture_pressed = ExtResource("14_y12np")
+texture_hover = ExtResource("15_pvdly")
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="YoloText" type="Label" parent="Mode/ButtonContainer/YoloButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 55
+theme_override_fonts/font = SubResource("FontVariation_d8am7")
+theme_override_font_sizes/font_size = 72
+text = "YOLO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ModeDescription" type="Label" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0212674
+anchor_top = 0.890774
+anchor_right = 0.293045
+anchor_bottom = 0.965774
+offset_top = -0.200073
+offset_right = -0.176025
+grow_vertical = 0
+theme_override_constants/outline_size = 55
+theme_override_fonts/font = SubResource("FontVariation_me860")
+theme_override_font_sizes/font_size = 92
+text = "Mode: checkpoint"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LeaderboardSubmit" parent="." instance=ExtResource("16_hytpa")]
+unique_name_in_owner = true
+layout_mode = 1
+offset_top = 1000.0
+offset_bottom = 1000.0
+
+[node name="TheEnd" type="Control" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(2304, 1344)
+anchors_preset = 0
+offset_top = 1350.0
+offset_right = 2304.0
+offset_bottom = 2694.0
+mouse_filter = 2
+
+[node name="Text" type="Label" parent="TheEnd"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_right = 0.8
+anchor_bottom = 0.855
+offset_left = 0.199982
+offset_right = -0.200073
+offset_bottom = -0.119995
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 50
+theme_override_fonts/font = ExtResource("6_uvbrt")
+theme_override_font_sizes/font_size = 128
+text = "Barry Balloon, also known as \"Big Barry\", escaped after thirty years of incarceration and his plans to shatter the peace will take full effect as he unleashes havoc on an unsuspecting world. "
+autowrap_mode = 2
+
+[node name="AnimPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_tblff")
+}
+
+[connection signal="pressed" from="Main/ButtonContainer/PlayButton" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Main/ButtonContainer/ModeButton" to="." method="_on_mode_pressed"]
+[connection signal="pressed" from="Main/ButtonContainer/LeaderboardButton" to="." method="_on_leaderboard_pressed"]
+[connection signal="pressed" from="Mode/ButtonContainer/CheckpointButton" to="." method="_on_checkpoint_button_pressed"]
+[connection signal="pressed" from="Mode/ButtonContainer/YoloButton" to="." method="_on_yolo_button_pressed"]
